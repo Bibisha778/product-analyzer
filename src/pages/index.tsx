@@ -163,7 +163,7 @@ export default function Home() {
             {/* URL */}
             <div className="mt-6">
               <label className="text-sm font-medium">Product URL</label>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex flex-wrap gap-2">
                 <input
                   type="url"
                   placeholder="https://example.com/product/123"
@@ -171,9 +171,20 @@ export default function Home() {
                   onChange={(e) => setUrl(e.target.value)}
                   className="input"
                 />
-                <button onClick={handleAnalyze} disabled={loading} className="btn btn-primary whitespace-nowrap">
+                <button
+                  onClick={handleAnalyze}
+                  disabled={loading}
+                  className="btn btn-primary whitespace-nowrap"
+                >
                   {loading ? 'Analyzing…' : 'Analyze'}
                 </button>
+                {/* Added Scan Barcode button */}
+                <a
+                  href="/scan"
+                  className="ml-2 inline-flex items-center rounded-lg border px-4 py-2 text-sm"
+                >
+                  Scan Barcode
+                </a>
               </div>
               <p className="mt-2 text-xs text-slate-500">
                 Amazon/BestBuy may hide prices in free mode. Use BooksToScrape/Newegg for perfect demos.
